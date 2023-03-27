@@ -1,8 +1,15 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //Require your User Model here!
-
+const UserModel = require('../models/user');
 // configuring Passport!
+
+
+// We need to adjust the callback function so that it gets called
+// when a user has logged into the application using OAUTH
+
+
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_SECRET,
@@ -26,6 +33,5 @@ passport.deserializeUser(function(id, done) {
   // be availible in every Single controller function, so you always know the logged in user
 
 });
-
 
 

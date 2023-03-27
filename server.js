@@ -1,5 +1,6 @@
 // load the env consts
-require('dotenv').config();
+require('dotenv').config(); // this line allows our node app to read from the .env file!
+// process.env.VARIABLE_NAME, process.env.GOOGLE_CALLBACK or process.env.GOOGLE_SECRET
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -8,7 +9,11 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
-const indexRoutes = require('./routes/index');
+
+//1. HOME PAGE = DEFINE ROUTE
+const homeRouter = require('./routes/home'); //changed index to home to define our first route from 
+//2. SCHEDULING PAGE = WE WILL BE ROUTINGO TO THIS PAGE WHEN SCHEDULE AND APPOINTMENT LINK IN HOMEPAGE IS CLICKED 
+const appointmentsRouter = require('./routes/appointments');
 
 
 // create the Express app
@@ -19,7 +24,7 @@ require('./config/database');
 // configure Passport
 require('./config/passport');
 
-
+//MIDDLEWARE
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,12 +55,18 @@ app.use(function (req, res, next) {
 });
 
 // mount all routes with appropriate base paths
-app.use('/', indexRoutes);
+
+//1. this is where we will be routed to our home page
+app.use('/', homeRouter); //changed index to home
+///2. CREATE APPOINTMENT
+//This is the route that the http request will take when we click on the schedule app link in the home page.
+//
+app.use('/appointments', appointmentsRouter);
 
 
 // invalid request, send 404 page
 app.use(function(req, res) {
-  res.status(404).send('Cant find that!');
+  res.status(404).send('You need a route/destination!cannot find that. this is the server routing you no where');
 });
 
 module.exports = app;

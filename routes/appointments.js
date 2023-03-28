@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 //define passport 
-const passport = require('passport')
+const isLoggedIn = require('../config/auth')
 
 
 
@@ -22,7 +22,11 @@ router.get('/', appointmentsCtrl.scheduling);
 // // //we want to create after you get the page. So first we need to get the page to fill out information 
 // // //remember that in controllers you need to export the function name. In this case it will be scheduling 
 
+//we now need a router to create an appointment and add it to our database 
+router.post('/', isLoggedIn, appointmentsCtrl.create);
+//no need to require since appointmentsCtrl already is and we are going to the same place/file in controllers
 
+//isLoggedIn will create an appointment only if user is logged in
 
 
 //to work on once pages are set up
@@ -32,32 +36,6 @@ router.get('/', appointmentsCtrl.scheduling);
 
 //I want patients to go to the log in page when they click on the link create appointment 
 //I want patients to be taken to the scheduling page after log in is successful 
-
-
-
-// Google OAuth login route
-router.get('/auth/google', passport.authenticate(
-  'google',
-  { scope: ['profile', 'email'] }
-));
-
-// Google OAuth callback route
-router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect : '/index', // UPDATE THIS, where do you want the client to go after you login 
-    failureRedirect : '/home' //  UPDATE THIS, where do you want the client to go if login fails
-  }
-));
-
-// OAuth logout route
-router.get('/logout', function(req, res){
-  req.logout(function(){ //< - req.logout comes from passport, and what it does is destorys the cookie keeping track of the user!
-    res.redirect('/home') // <---- UPDATE THIS TO WHERE YOU WANT THE USER TO GO AFTER LOGOUT
-  })
-})
-
-
 
 
 

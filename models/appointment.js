@@ -15,7 +15,7 @@ const appointmentSchema = new mongoose.Schema({
         required: true,
     },
     dob: {
-        type: number,
+        type: Date,
         required: true,
     },
     location: {
@@ -31,8 +31,18 @@ const appointmentSchema = new mongoose.Schema({
     }
 });
 
-//we need to finish up by creating a collection in our database named movie 
-//every movie we create will have the appointment schema above 
+//we need to finish up by creating a collection in our database named appointment
+//every appointment we create will have the appointment schema above 
 
 module.exports = mongoose.model("Appointment", appointmentSchema);
+//this is the line of code where we are creating a MODEL. MODEL=collection
+//We pass on the appointmentSchema variable and we give it a name of Appointment, 
+//which MANGODB then pluririzes and makes it all lower case. It is showing more 
+//than one appointment 
 
+//when we create a model, it'll create a collection in mongo DB
+//as stated above model=collection
+
+//mongoose.model("Appointment", appointmentSchema); 
+//this line of code returns an object that we are exporting,
+//and that object is our model

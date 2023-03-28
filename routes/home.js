@@ -4,10 +4,11 @@
 //UNDER A NEW FILE NAMED NAMED HOME.JS:))) I THINK! DOUBLE CHECK! CAUSE IT IS NOT DOING LOCALHOST:3000/HOME. IT IS ONLY DOING THE '/'
 
 const router = require('express').Router(); //removed .Router() following express cause of error
-// const passport = require('passport');
+// const express = express.Router();
+const passport = require('passport');
 
 // // The root/home route renders our only view/home
-router.get('/', function(req, res) {
+router.get('/', function(req, res, next) {
 res.render('home', { title: 'Psychiatric Services'});
 //this above calls on the home ejs 
 
@@ -18,5 +19,31 @@ res.render('home', { title: 'Psychiatric Services'});
 //   // a request to `/auth/google` route below
 });
 
+
+
+
+// Google OAuth login route
+router.get('/auth/google', passport.authenticate(
+    'google',
+    { scope: ['profile', 'email'] }
+  ))
+  
+  // Google OAuth callback route
+  router.get('/oauth2callback', passport.authenticate(
+    'google',
+    {
+      successRedirect : '/appointments', // UPDATE THIS, where do you want the client to go after you login 
+      failureRedirect : '/home' //  UPDATE THIS, where do you want the client to go if login fails
+    }
+  ))
+  
+  // OAuth logout route
+  router.get('/logout', function(req, res){
+    req.logout(function(){ //< - req.logout comes from passport, and what it does is destorys the cookie that's keeping track of the user!
+      res.redirect('/') //I need them to go to the home page
+    })
+  })
+  
+  
 
 module.exports = router;

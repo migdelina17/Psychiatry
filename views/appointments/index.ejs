@@ -4,6 +4,7 @@
 
 <main>
     <h1>Upcoming Appointments</h1>
+    <% if (appointments.length>0) {%>
     <table>
       <thead> 
         <tr>
@@ -58,7 +59,7 @@
             <% }) %>
           </tbody>
     </table>
-
+<% } %>
   </main>
   
     <%- include('../partials/footer') %>

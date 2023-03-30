@@ -9,19 +9,39 @@
 </head>
 
 
-<header>
-    <a href="/auth/google" class="login">LOG IN</a> <br>
+<header class="headers">
+    <nav>
 
-    <a href="/logout">LOG OUT</a>
+        <% if (user) { %>
+
+    <a style="text-decoration:none" href="/">HOME</a> 
+
+    <a style="text-decoration:none" href="/appointments">SCHEDULING</a> 
+
+    <a style="text-decoration:none" href="/appointments/index">MY APPOINTMENTS</a> 
+
+    <a style="text-decoration:none" href="/logout">LOGOUT</a>
+
+    <% } else { %>
+        
+    <a style="text-decoration:none" href="/auth/google" class="login">LOGIN</a> 
+    
+    <% } %>
+
+    </nav>
 </header>
 
+<h1>Psychiatry Services</h1>
 
 <body>
-    <h1>Psychiatry Services</h1>
-
-    <a href="/appointments">Schedule an appointment today! </a> <br>
-    <!-- we will use ejs/javaScript to create a function that should only disclose the the schecule appointment link above if you are logged in
-    // we also need to create a log in button -->
-   
+<nav>
+<% if (user) { %>
+    <a href="/appointments">Schedule an appointment today! </a> <br> 
+     <!-- i think this needs to be /scheduling? 
+     we will use ejs/javaScript to create a function that should only disclose the the schecule appointment link above if you are logged in
+     we also need to create a log in button 
+   -->
+   <% } %>
+</nav>
 </body>
 </html> 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='stylesheets/style.css'/> 
+    <title>Document</title>
+</head>
+
+
+<header class="headers"><%- include('../partials/header') %></header>
+
+<h1> Edit My Appointment </h1>
+
+<body>
+    
+<section>
+<div>Name:</div>
+<div><%=appointment.name %></div>
+
+<div>Date of Birth:</div>
+<div><%=appointment.dob %></div>
+
+<div>Location:</div>
+<div> <%=appointment.location %></div>
+
+<div>Appointment Time & Date:</div>
+<div><%=appointment.date %> </div>
+
+</section>
+
+
+
+<label>Add Provider</label>
+<select name="providers">
+    <option value="" disabled selected hidden>Select</option> 
+    <option value="Eduardo Hernandez, MD">Eduardo Hernandez, MD</option>
+    <option value="Jessica Parlor, D.O.">Jessica Parlor, D.O.</option>
+    <option value="Skye James, P.A.">Skye James, P.A.</option>
+    <option value="Alejando Clayton, N.P.">Alejando Clayton, N.P.</option>
+    <option value="Cynthia Boyd, MD">Cynthia Boyd, MD</option>
+    <option value="Snow Winters, N.P">Snow Winters, N.P</option>
+</select><br>
+
+
+
+<label>Add Insurance</label>
+<select name="insurance">
+    <option value="" disabled selected hidden>Select</option> 
+    <option value="BlueCross">BlueCross</option>
+    <option value="Medicare">Medicare</option>
+    <option value="Aetna">Aetna</option>
+</select>
+
+
+
+</form>
+<form action="/providers/appointments/index/<%=//a._id %>?_method=PUT" method="POST">
+    <button type="submit">SUBMIT CHANGES</button>
+
+
+  </form>
+
+
+  <%- include('../partials/footer') %>

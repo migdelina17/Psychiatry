@@ -1,2 +1,44 @@
-//this is where you will see all your appointmentns 
-//this is the page where you wanna see all your appintments 
+<!DOCTYPE html>
+<html class ="allpages" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <title>My Appointments</title>
+</head>
+<header><%- include('../partials/header') %></header>
+
+<body>
+    <h1>Upcoming Appointments</h1>
+    <table>
+        <tbody>
+            <!-- Write the line of EJS to iterate over flights using forEach -->
+            <% appointments.forEach(a => { %>
+              <tr>
+                <td><%= a.name %></td>
+                <td><%= a.dob %></td>
+                <td><%= a.location %></td>
+                <td><%= a.date %></td>
+              <td><a href="/providers/appointments/index/<%= a._id %>">ADD PROVIDER</a></td>
+              <!-- maybe change the name of the link, 
+                Add insurance, provider, reason for booking? we will need new files to update info
+                do we need a new route? I do not think because update button will be attached to each appointment & their id
+                we will need a new update routes file, update controller -->
+
+           
+           
+                    <td>
+        
+                        <form action="/appointments/index/<%= a._id %>?_method=DELETE" method="POST">
+                          <button type="submit">CANCEL</button>
+                        </form>
+           
+    
+           
+                  </tr>
+            <!-- Close the forEach using EJS here -->
+            <% }) %>
+          </tbody>
+    </table>
+    <%- include('../partials/footer') %>

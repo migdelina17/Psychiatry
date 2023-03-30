@@ -4,11 +4,32 @@
 // //This is also where we will connect to our mongo Data Base to be able to save our appointment information 
 // const mongoose = require('mongoose'); //--this connects to the database 
 
-// // start with the scheduling appointment schema 
-
 const mongoose = require("mongoose");
 
-//we are creating an appointment 
+
+//we started by creating a schema for appointment scheduling
+
+//now we will create a schema that we want to update our provider with 
+//we will then embed it into our model appointmentschema
+
+const providerSchema = new mongoose.Schema({
+    provider: {
+        type: String,
+        enum: ['Eduardo Hernandez, MD', 'Jessica Parlor, D.O.', 'Skye James, P.A.',
+    'Alejando Clayton, N.P.', 'Cynthia Boyd, MD', 'Snow Winters, N.P']
+    },
+    insurance: {
+        type: String,
+        enum: ['BlueCross', 'Medicare', 'Aetna']
+    }
+})
+
+
+
+
+
+
+//we are creating an appointment scheme //we started with this
 const appointmentSchema = new mongoose.Schema({
     name: {
         type: String, //text box
@@ -27,8 +48,13 @@ const appointmentSchema = new mongoose.Schema({
         type: Date,
         default: function () {
             return new Date(new Date().setFullYear(new Date().getFullYear() +1))
-    }
-    }
+    },
+    required: true
+    },
+
+    provider: providerSchema,
+
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });
 
 //we need to finish up by creating a collection in our database named appointment

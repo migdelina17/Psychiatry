@@ -37,10 +37,10 @@ router.post('/', isLoggedIn, appointmentsCtrl.create);
 //I want patients to go to the log in page when they click on the link create appointment 
 //I want patients to be taken to the scheduling page after log in is successful 
 
+router.get('/index', appointmentsCtrl.index); //hoping to get the list of booked appointments by logged in patient
 
 
-
-
+router.delete('/index/:id', isLoggedIn, appointmentsCtrl.delete); //idk if we can use the word cancel
 
 
 

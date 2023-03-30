@@ -1,6 +1,22 @@
 .allpages {
   display: flex;
   justify-content: center;
-  /* align-items: center; will not work */
+  align-items: center; 
+  
 }
 
+header > nav > a{ 
+  margin-right: auto;
+  margin-left: auto;
+  /* line-height: 100px; */
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}

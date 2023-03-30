@@ -21,10 +21,9 @@ const providerSchema = new mongoose.Schema({
     insurance: {
         type: String,
         enum: ['BlueCross', 'Medicare', 'Aetna']
-    }
+    },
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 })
-
-
 
 
 
@@ -52,7 +51,7 @@ const appointmentSchema = new mongoose.Schema({
     required: true
     },
 
-    provider: providerSchema,
+    provider: [providerSchema],
 
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });

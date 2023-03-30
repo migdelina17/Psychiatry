@@ -82,12 +82,3 @@ res.redirect('/appointments/index')
 }
   
 
-// .then(function(appointmentDoc){
-//     console.log(appointmentDoc, '<--this is appointmetn doc');
-//     if(!appointmentDoc) return res.redirect('/appointments');
-
-//     appointmentDoc.remove(req.params.id);
-// //this removes the appointment but we have to update changes in database
-// appointmentDoc.save().then(function(){
-    
-//})

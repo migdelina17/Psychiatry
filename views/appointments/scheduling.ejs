@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html class="allpages" lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='stylesheets/style.css'/> 
     <title>Scheduling</title>
-</head>
+</head> -->
+
 
 <header><%- include('../partials/header') %></header>
 
-<body>
+
+<main>
     <h1>Schedule Appointment</h1>
 
     <form action="/appointments" method="POST">
@@ -34,7 +36,11 @@
     <input type="date" name="date" required><br>
 
     <input type="submit" value="Create Appointment">
-</form>
+    </form>
+
+</main>
+
+
 <!-- /* we now need a button that will say create appointment*/
 /* when clicked we want to be taken to a confirmation page/pop up that will give us appt details
 /*at the bottom of that page we will also have a link that will say view my appointments */ -->

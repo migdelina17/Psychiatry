@@ -5,18 +5,47 @@
   
 }
 
-header > nav > a{ 
-  margin-right: auto;
-  margin-left: auto;
-  /* line-height: 100px; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  display: flex;
-  justify-content: center;
+body {
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  GeOOGLE FONTS NOT WORKING */
+  text-align: center;
+  background-color: tan;
+  height: 100%; 
+  width: 100%;
 }
 
-form {
-  display: flex;
-  justify-content: center;
+
+header {
+  background-color: white;
+  color: black;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+
+
+header > nav > a { 
+  padding-left: 50px;
+  padding-right: 50px
+}
+ 
+
+main{
+  width: 90vw;
+  margin: 0 auto;
+  padding: 30px 20px;
+  min-height: calc(100vh - 98px - 130px);
+  background-color: pink;
+}
+
+footer {
+  color: black;
+  padding-top: 50px;
+  padding-bottom: 20px;
 }

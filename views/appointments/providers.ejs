@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="allpages" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='stylesheets/style.css'/> 
-    <title>Document</title>
+    <title>EDIT APPOINTMENT</title>
 </head>
 
 
-<header class="headers"><%- include('../partials/header') %></header>
+<header><%- include('../partials/header') %></header>
 
-<h1> Edit My Appointment </h1>
+<main>
 
-<body>
-    
+<h1>Edit My Appointment</h1>
+  
 <section>
 <div>Name:</div>
 <div><%=appointment.name %></div>
@@ -28,12 +28,16 @@
 <div>Appointment Time & Date:</div>
 <div><%=appointment.date %> </div>
 
+
+<h3>provider</h3>
+<div><%= appointment.provider.provider%></div>
+<div><%= appointment.provider.insurance%></div>
 </section>
 
 
-
+<form method="POST" action="/providers/appointments/index/<%= appointment._id%>"> 
 <label>Add Provider</label>
-<select name="providers">
+<select name="provider">
     <option value="" disabled selected hidden>Select</option> 
     <option value="Eduardo Hernandez, MD">Eduardo Hernandez, MD</option>
     <option value="Jessica Parlor, D.O.">Jessica Parlor, D.O.</option>
@@ -53,14 +57,12 @@
     <option value="Aetna">Aetna</option>
 </select>
 
-
-
-</form>
-<form action="/providers/appointments/index/<%=//a._id %>?_method=PUT" method="POST">
     <button type="submit">SUBMIT CHANGES</button>
 
+</form>
 
-  </form>
 
+  
+</main>
 
   <%- include('../partials/footer') %>

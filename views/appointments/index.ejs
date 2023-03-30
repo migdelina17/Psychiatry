@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class ="allpages" lang="en">
+<html class="allpages" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel='stylesheet' href='stylesheets/style.css'/> 
     <title>My Appointments</title>
 </head>
+
+
 <header><%- include('../partials/header') %></header>
 
-<body>
+<main>
     <h1>Upcoming Appointments</h1>
     <table>
         <tbody>
@@ -20,6 +22,9 @@
                 <td><%= a.dob %></td>
                 <td><%= a.location %></td>
                 <td><%= a.date %></td>
+                <td><%= a.provider %></td>
+                
+
               <td><a href="/providers/appointments/index/<%= a._id %>">ADD PROVIDER</a></td>
               <!-- maybe change the name of the link, 
                 Add insurance, provider, reason for booking? we will need new files to update info
@@ -41,4 +46,7 @@
             <% }) %>
           </tbody>
     </table>
+
+  </main>
+  
     <%- include('../partials/footer') %>

@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html class="allpages" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='stylesheets/style.css'/> 
-    <title>EDIT APPOINTMENT</title>
-</head>
+<%- include('../partials/header') %>
 
-
-<header><%- include('../partials/header') %></header>
 
 <main>
 
@@ -28,14 +18,14 @@
 <div>Appointment Time & Date:</div>
 <div><%=appointment.date %> </div>
 
-
+    <% if (appointment.provider.length>0){ %>
 <h3>provider</h3>
-<div><%= appointment.provider.provider%></div>
-<div><%= appointment.provider.insurance%></div>
+<div><%= appointment.provider[0].provider%></div>
+<div><%= appointment.provider[0].insurance%></div>
 </section>
+<% } %>
 
-
-<form method="POST" action="/providers/appointments/index/<%= appointment._id%>"> 
+<form method="POST" action="/providers/index/<%= appointment._id %>?_method=PUT"> 
 <label>Add Provider</label>
 <select name="provider">
     <option value="" disabled selected hidden>Select</option> 
@@ -65,4 +55,4 @@
   
 </main>
 
-  <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

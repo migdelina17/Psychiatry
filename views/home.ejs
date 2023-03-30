@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html class="allpages" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='stylesheets/style.css'/> 
-    <title>Psychiatric Services</title>
-</head>
 
-<body>
-
-<header class="headers">
-    <nav>
-
-        <% if (user) { %>
-
-    <a style="text-decoration:none" href="/">HOME</a> 
-
-    <a style="text-decoration:none" href="/appointments">SCHEDULING</a> 
-
-    <a style="text-decoration:none" href="/appointments/index">MY APPOINTMENTS</a> 
-
-    <a style="text-decoration:none" href="/logout">LOGOUT</a>
-
-    <% } else { %>
-        
-    <a style="text-decoration:none" href="/auth/google" class="login">LOGIN</a> 
-    
-    <% } %>
-
-    </nav>
-</header>
+<%- include('./partials/header') %>
 
 <main>
 
@@ -49,12 +18,5 @@
 
 </main>
 
-<footer> 
-    <p> Phone: (916)-222-1849 </p>
-    <p> Philadelphia ocations: Manayunk, Fishtown, Passyunk, and Center City</p> 
-    <p> E-mail us at contact@psychiatryservices.org </p>
-</footer>
 
-
-</body>
-</html> 
+<%- include('./partials/footer') %>

@@ -12,8 +12,7 @@
 }
 
 body {
-    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-  GeOOGLE FONTS NOT WORKING */
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
   background-color: tan;
   height: 100%; 
@@ -41,7 +40,7 @@ main{
   margin: 0 auto;
   padding: 30px 20px;
   min-height: calc(100vh - 98px - 130px);
-  background-color: pink;
+  background-color: #D2B48C;
 }
 
 footer {

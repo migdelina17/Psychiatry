@@ -10,17 +10,14 @@ const providersCtrl = require('../controllers/providers'); //.. back tracks two 
 //GET request to get the schema to render on providers ejs page
 
 
-router.get('/appointments/index/:id/', providersCtrl.edit); 
+router.get('/index/:id/', providersCtrl.edit); 
 
-router.post('/appointments/index/:id/', providersCtrl.addProvider); //intended destination is providers to edit
+router.put('/index/:id/', isLoggedIn, providersCtrl.update); //intended destination is providers to edit
 //look at crud cheat sheet to fix the path 
 
 
 
-
-
-
-// router.put('/appointments/index/:id/', isLoggedIn, providersCtrl.update);
+//  router.put('/appointments/index/:id/', isLoggedIn, providersCtrl.update);
 
 
 module.exports = router;

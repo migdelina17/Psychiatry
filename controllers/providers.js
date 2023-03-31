@@ -15,13 +15,14 @@ module.exports = {
 
 
 function editAppointment(req, res) {
-
+//we are running the mongoose function to find the document/appoitnment by id
     AppointmentModel.findById(req.params.id)
-    .then(function(appointmentDoc) {
+    .then(function(appointmentDoc) { //once found appointment = appointmentDoc
 
         console.log(appointmentDoc);
-        res.render('appointments/providers', {
-            appointment: appointmentDoc
+        res.render('appointments/providers', { // now it will show that appointment /appdoc 
+            //physically in the provioders page/ providers ejs
+            appointment: appointmentDoc //we giving value to app doc  to use in 
         });
     }).catch((err) =>{
     console.log(err);
@@ -35,13 +36,16 @@ function editAppointment(req, res) {
 //create a function that will allow us to take the provider schema 
 
 async function addProvider(req, res) {
-    try{
+    try{ //finds the appt by id in database
         const appointment = await AppointmentModel.findById(req.params.id) 
-        req.body.userId = req.user._id
-        // appointment.provider.push(req.body)
-        appointment.provider[0]= req.body 
+        req.body.userId = req.user._id  
+        // // appointment.provider.push(req.body) //this would 
+        appointment.provider[0]= req.body //this makes us only have one provider at a time
+        //we are taking req.body and setting that to the first index of app.provider array
+        
+        
         await appointment.save()
-        res.redirect('/appointments/index')
+        res.redirect('/appointments/index') //triggers index route & funcion in appts, which then renders back to index ejs/my appointments 
     } catch(err) {
         console.log(err, '<- this is the add provider error');
     }
@@ -49,95 +53,7 @@ async function addProvider(req, res) {
  
 }
 
+//provider was made an array in appoibntment schema and we are setting it to index of 0
 
-// async function update(req, res) {
-//     try {
-//       const updatedBook = await Book.findOneAndUpdate(
-//         {_id: req.params.id, userRecommending: req.user._id},
-//         // update object with updated properties
-//         req.body,
-//         // options object {new: true} returns updated doc
-//         {new: true}
-//       );
-//       return res.redirect(`/books/${updatedBook._id}`);
-//     } catch (e) {
-//       console.log(e.message);
-//       return res.redirect('/books');
-//     }
-//   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  async function changeProvider(req, res) {
-    
-// try {
-    
-//     const addedProvider = await Appointment.findOneAndUpdate(
-//          {_id: req.params.id, userPrefferences: req.user._id},
-//         // update object with updated properties
-//         req.body,
-//         // options object {new: true} returns updated doc
-//         {new: true}
-//       );
-//       return res.redirect(`/index/${addedProvider._id}`);
-//     }catch(err){
-//         console.log(err);
-//    }
-// }
-
-// // always render to the desired show page
-
-// function changeProvider() {
-//     console.log(re.body);
-
-// AppointmentModel.findOneAndUpdate(req.params.id)
-
-//     .then(function(appointmentDoc) {
-//         console.log(appointmentDoc);
-
-
-
-//         req.body.medicalProvider = req.user.provider;
-
-
-
-//         appointmentDoc.save().then(function () {
-//         return res.redirect(`/index/${addedProvider._id}`);
-//     });
-
-
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//         res.send(err);
-//       });
-
-// }
-
-
-
-// .then(function(appointmentDoc){
-//     console.log(appointmentDoc, '<--this is appointmetn doc');
-//     if(!appointmentDoc) return res.redirect('/appointments');
-
-//     appointmentDoc.remove(req.params.id);
-// //this removes the appointment but we have to update changes in database
-// appointmentDoc.save().then(function(){
-    
-//})
-
-
-
+//the [0] is making us only have one provider at a time, it wont let us pile up
+// we are only giving one slot (index)

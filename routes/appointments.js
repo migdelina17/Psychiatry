@@ -41,10 +41,7 @@ router.get('/index', appointmentsCtrl.index); //hoping to get the list of booked
 
 
 router.delete('/index/:id', isLoggedIn, appointmentsCtrl.delete); //idk if we can use the word cancel
-
-
-
-
+//when we click cancel button in the index page it will trigger this delete route
 
 
 

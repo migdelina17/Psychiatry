@@ -11,23 +11,16 @@ const providersCtrl = require('../controllers/providers'); //.. back tracks two 
 
 
 router.get('/index/:id/', providersCtrl.edit); 
+//when we click the select provider button it will trigger that route
+//then it will run the edit: editappointment function inside our provider controllers 
 
 router.put('/index/:id/', isLoggedIn, providersCtrl.update); //intended destination is providers to edit
-//look at crud cheat sheet to fix the path 
+//when we click addprovider in our providers page it'll trigger this route
+//then the update: addProvider function will run 
 
 
 
-//  router.put('/appointments/index/:id/', isLoggedIn, providersCtrl.update);
+
 
 
 module.exports = router;
-
-// //then! 
-
-// //PUT request that method override will fix to update provider to app
-// // in our controller function we will probably have something saying push 
-// //to add to our appointment detals
-
-// //and we want it to render to the controllers page 
-/* <form action="/providers/appointments/index/<%= appointment._id %>?_method=PUT" method="POST">
-*/

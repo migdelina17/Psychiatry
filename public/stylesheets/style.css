@@ -14,9 +14,13 @@
 body {
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
-  background-color: tan;
+  /* background-color: rgba(199, 187, 177); */
+  background-image: url(https://i.imgur.com/XsHUqqo.gif);
   height: 100%; 
   width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
 }
 
 
@@ -27,24 +31,29 @@ header {
   padding-bottom: 30px;
 }
 
-
+a {
+  color: rgba(171, 98, 66);
+ } 
 
 header > nav > a { 
   padding-left: 50px;
-  padding-right: 50px
+  padding-right: 50px;
+  color: black;
 }
  
+
 
 main{
   width: 90vw;
   margin: 0 auto;
   padding: 30px 20px;
   min-height: calc(100vh - 98px - 130px);
-  background-color: #D2B48C;
+  background-color: rgba(242, 235, 227, .7);
 }
 
 footer {
   color: black;
   padding-top: 50px;
   padding-bottom: 20px;
+  background-color: rgba(233, 229, 223);
 }

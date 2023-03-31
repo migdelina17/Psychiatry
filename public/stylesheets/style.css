@@ -12,9 +12,8 @@
 }
 
 body {
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Cormorant Garamond', serif;
   text-align: center;
-  /* background-color: rgba(199, 187, 177); */
   background-image: url(https://i.imgur.com/XsHUqqo.gif);
   height: 100%; 
   width: 100%;

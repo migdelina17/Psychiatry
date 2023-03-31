@@ -29,7 +29,6 @@
                 <td><%= a.date.toLocaleString() %></td>
 
 
-
                 <% if (a.provider.length>0) { %>
                  <td> <%= a.provider[0].provider %> </td>
                  <td> <%= a.provider[0].insurance %></td>
@@ -39,13 +38,7 @@
              <% } %>
 
               <td><a href="/providers/index/<%= a._id %>"> SELECT PROVIDER </a></td>
-              <!-- maybe change the name of the link, 
-                Add insurance, provider, reason for booking? we will need new files to update info
-                do we need a new route? I do not think because update button will be attached to each appointment & their id
-                we will need a new update routes file, update controller -->
-
-           
-           
+             
                     <td>
         
                         <form action="/appointments/index/<%= a._id %>?_method=DELETE" method="POST">

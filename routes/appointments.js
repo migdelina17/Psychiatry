@@ -1,22 +1,25 @@
-//this is where we will create out http request routers 
-// //and set values to call on functions in the controllers folder
+
 
 const express = require('express');
 const router = express.Router();
 
-//define passport 
 const isLoggedIn = require('../config/auth')
 
 
 
-// // //we need to require the controllers file that has the functions that
-// // //we want the intended http request to call on 
+//require the controllers file that has the functions that we want to call on
 const appointmentsCtrl = require('../controllers/appointments');
 
-// // //this is where we will go after the book appointment link is clikced. 
+//this is where we will go after the book appointment link is clikced. 
 // // //we want to be taken to the scheduling page so that we can submit appointment information 
 // // //before clicking on book
 router.get('/', appointmentsCtrl.scheduling);
+//the Schedule apppintment/scheduling link will trigger this GET route
+//then the 
+
+
+
+
 // // // //the post router will be calling on the appointments controller to create 
 // // // router.post('/', appointmentsCtrl.create);
 // // //we want to create after you get the page. So first we need to get the page to fill out information 

@@ -22,5 +22,4 @@ router.put('/index/:id/', isLoggedIn, providersCtrl.update); //intended destinat
 
 
 
-
 module.exports = router;

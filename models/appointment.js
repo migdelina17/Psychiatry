@@ -1,17 +1,10 @@
-//This is where we will be creating our schema for patient to input specific information
-//to be able to create an appointment. 
-
-// //This is also where we will connect to our mongo Data Base to be able to save our appointment information 
-// const mongoose = require('mongoose'); //--this connects to the database 
-
-const mongoose = require("mongoose");
 
 
-//we started by creating a schema for appointment scheduling
+const mongoose = require("mongoose"); //<--this connects to the MongoDB/database 
 
-//now we will create a schema that we want to update our provider with 
-//we will then embed it into our model appointmentschema
 
+
+//providerSchema is used to change provider in our appointment & is embedded in appointmentSchema
 const providerSchema = new mongoose.Schema({
     provider: {
         type: String,
@@ -27,11 +20,11 @@ const providerSchema = new mongoose.Schema({
 
 
 
-
-//we are creating an appointment scheme //we started with this
+//we started by creating a schema for appointment scheduling
+//this is specific information used to create/save an appointment in MongoDataBase
 const appointmentSchema = new mongoose.Schema({
     name: {
-        type: String, //text box
+        type: String, 
         required: true,
     },
     dob: {
@@ -51,23 +44,17 @@ const appointmentSchema = new mongoose.Schema({
     required: true
     },
 
-    provider: [providerSchema],
+    provider: [providerSchema], // provider = providerSchema array []
 
     userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
 });
 
-//we need to finish up by creating a collection in our database named appointment
-//every appointment we create will have the appointment schema above 
+//model --> collection
+//schema --> document
 
 module.exports = mongoose.model("Appointment", appointmentSchema);
-//this is the line of code where we are creating a MODEL. MODEL=collection
+//this is the line of code where we are creating a MODEL.
 //We pass on the appointmentSchema variable and we give it a name of Appointment, 
-//which MANGODB then pluririzes and makes it all lower case. It is showing more 
-//than one appointment 
+//which MANGODB then pluririzes and makes it all lower case. 
 
-//when we create a model, it'll create a collection in mongo DB
-//as stated above model=collection
-
-//mongoose.model("Appointment", appointmentSchema); 
-//this line of code returns an object that we are exporting,
-//and that object is our model
+//when we create a model, it'll create a collection in mongo DB (model-->collection)

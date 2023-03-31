@@ -22,11 +22,15 @@ They failed login will always respond client with the home page.
 Once patient log into their google account, they will be able to navigate the site and use all the features. Our header holds the home, scheduling, my appointments, and log out links. 
 The Schedule-an-appointment-today link in the middle of the home page takes us to the same place as the scheduling link in the header. 
 
+SCHEDULING APPT LINK -> GET HTTP REQUEST
+
 ### Scheduling 
 
 ![SCHEDULING](public/images/SCHEDULING.png)
 
 Patients will be able to create an appointment using only their name, date of birth, locaion, and time. All fields are required. 
+
+CREATE APPOINTMENT LINK -> POST HTTP REQUEST
 
 ### Upcoming Uppointments
 
@@ -35,6 +39,9 @@ Patients will be able to create an appointment using only their name, date of bi
 Patients can view all of their scheduled appointments and the details of them.
 This page will also allow patients to either cancel appointments individually, or edit them by adding/changing insurance and/or provider. 
 
+SELECT PROVIDER LINK -> GET HTTP REQUEST
+CANCEL LINK -> DELETE HTTP REQUEST
+
 ### Editing select appointment details
 ![EDIT-APPOINT](public/images/EDIT-APPOINT.png)
 
@@ -42,7 +49,7 @@ Once patients click on the select provider link they will be taken to the edit p
 
 Pantient can then log out, and they will be taken to the main logout home page. 
 
-
+SUBMIT CHANGE LINK -> PUT HTTP REQUEST
 
 ## Next Steps 
 I will be working on making the details of the app more accurate, such as calendar limitaions for DOB and Appointment date, as well as block out dates where appointments are no longer available.

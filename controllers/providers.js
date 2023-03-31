@@ -1,13 +1,12 @@
-//we start by requiring our model 
 
+//we start by requiring our model 
 const AppointmentModel = require('../models/appointment');
 
 //we need to export desired funcion name 
-
 module.exports = {
     edit: editAppointment,
     update: addProvider
-    // update: changeProvider
+   
 }
 
 
@@ -39,7 +38,7 @@ async function addProvider(req, res) {
     try{ //finds the appt by id in database
         const appointment = await AppointmentModel.findById(req.params.id) 
         req.body.userId = req.user._id  
-        // // appointment.provider.push(req.body) //this would 
+        // // appointment.provider.push(req.body) //this piles providers on top of eachother as apposed to
         appointment.provider[0]= req.body //this makes us only have one provider at a time
         //we are taking req.body and setting that to the first index of app.provider array
         
@@ -53,7 +52,6 @@ async function addProvider(req, res) {
  
 }
 
-//provider was made an array in appoibntment schema and we are setting it to index of 0
-
+//provider was made an array in appointment schema and we are setting it to index of 0
 //the [0] is making us only have one provider at a time, it wont let us pile up
 // we are only giving one slot (index)

@@ -14,7 +14,7 @@ const MongoStore = require('connect-mongo');
 //1. HOME PAGE = DEFINE ROUTE
 const homeRouter = require('./routes/home'); //changed index to home to define our first route from 
 //2. SCHEDULING PAGE = WE WILL BE ROUTINGO TO THIS PAGE WHEN SCHEDULE AND APPOINTMENT LINK IN HOMEPAGE IS CLICKED 
-const appointmentsRouter = require('./routes/appointments');
+const schedulingRouter = require('./routes/appointments'); //this is file not a route
 //3. assign a router variable to providersin routes where we will
 //get our appointments/render/show in views // and then update (PUT)
 const providersRouter = require('./routes/providers');
@@ -94,10 +94,10 @@ app.use('/', homeRouter); //this is the root of your. the '/', is invisible you 
 ///2. CREATE APPOINTMENT
 //This is the route that the http request will take when we click on the schedule app link in the home page.
 //
-app.use('/appointments', appointmentsRouter); // this one will be used for the POST http request in appointments 
+app.use('/', schedulingRouter); // this one will be used for the POST http request in appointments 
 
 //3. /Update appointments with providers & insurance
-app.use('/providers', providersRouter);
+app.use('/editmyappointment', providersRouter);
 
 // invalid request, send 404 page
 app.use(function(req, res) {

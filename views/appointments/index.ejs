@@ -37,11 +37,11 @@
               <td></td>
              <% } %>
 
-              <td><a href="/providers/index/<%= a._id %>"> SELECT PROVIDER </a></td>
+              <td><a href="/editmyappointment/<%= a._id %>"> SELECT PROVIDER </a></td>
              
                     <td>
         
-                        <form action="/appointments/index/<%= a._id %>?_method=DELETE" method="POST">
+                        <form action="/myappointments/<%= a._id %>?_method=DELETE" method="POST">
                           <button type="submit">CANCEL</button>
                         </form>
            

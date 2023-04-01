@@ -44,7 +44,7 @@ async function addProvider(req, res) {
         
         
         await appointment.save()
-        res.redirect('/appointments/index') //triggers index route & funcion in appts, which then renders back to index ejs/my appointments 
+        res.redirect('/myappointments') //triggers index route & funcion in appts, which then renders back to index ejs/my appointments 
     } catch(err) {
         console.log(err, '<- this is the add provider error');
     }
